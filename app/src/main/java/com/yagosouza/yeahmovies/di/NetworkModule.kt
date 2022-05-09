@@ -1,6 +1,7 @@
 package com.yagosouza.yeahmovies.di
 
 import com.yagosouza.yeahmovies.AppConstants
+import com.yagosouza.yeahmovies.network.NetworkResponseAdapterFactory
 import com.yagosouza.yeahmovies.network.TmdbApi
 import dagger.Module
 import dagger.Provides
@@ -54,6 +55,7 @@ class NetworkModule {
             .baseUrl(AppConstants.BASE_URL)
             .client(logginClient)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(NetworkResponseAdapterFactory())
             .build()
     }
 

@@ -1,7 +1,7 @@
 package com.yagosouza.yeahmovies.di
 
 import androidx.lifecycle.ViewModel
-import com.yagosouza.yeahmovies.ui.HomeViewModel
+import com.yagosouza.yeahmovies.viewmodel.HomeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
