@@ -22,7 +22,6 @@ import javax.inject.Inject
 val LOGTAG = "logrequest"
 
 class HomeViewModel @Inject constructor(
-    private val tmdbApi: TmdbApi,
     private val homeDataSource: HomeDataSource,
     @IODispatcher private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
