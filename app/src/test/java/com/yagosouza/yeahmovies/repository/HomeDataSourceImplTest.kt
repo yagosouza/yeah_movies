@@ -1,12 +1,12 @@
-package com.yagosouza.yeahmovies
+package com.yagosouza.yeahmovies.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.yagosouza.yeahmovies.AppConstants
 import com.yagosouza.yeahmovies.network.ErrorResponse
 import com.yagosouza.yeahmovies.network.NetworkResponse
 import com.yagosouza.yeahmovies.network.TmdbApi
 import com.yagosouza.yeahmovies.network.model.dto.MovieDTO
 import com.yagosouza.yeahmovies.network.model.dto.MovieResponseDTO
-import com.yagosouza.yeahmovies.repository.HomeDataSourceImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
