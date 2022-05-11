@@ -24,7 +24,7 @@ interface TmdbApi {
         @Query("page") page: Int
     ): NetworkResponse<MovieResponseDTO, ErrorResponse>
 
-    @GET("movie/top-rated")
+    @GET("movie/top_rated")
     suspend fun getTopRated(
         @Query("language") language: String,
         @Query("page") page: Int

@@ -37,16 +37,20 @@ class HomeViewModel @Inject constructor(
     private val _isLoading: MutableLiveData<Boolean>? = MutableLiveData()
     val isLoading: LiveData<Boolean>? = _isLoading
 
+    init {
+        getListsOfMovies()
+    }
+
     fun getListsOfMovies() {
-        showErrorMessage(false)
+        showErrorMessage(false, "teste")
         try {
             viewModelScope.launch(dispatcher) {
                 homeDataSource.getListOfMovies(dispatcher) { result ->
                     when (result) {
                         is NetworkResponse.Success -> {
-                            _listsOfMovies?.value = result.body
-                            _isLoading?.value = false
-                            _errorMessageVisibility?.value = false
+                            _listsOfMovies?.postValue(result.body)
+                            _isLoading?.postValue(false)
+                            _errorMessageVisibility?.postValue(false)
                         }
                         is NetworkResponse.NetworkError -> {
                             showErrorMessage(true, AppConstants.NETWORK_ERROR_MESSAGE)
@@ -66,8 +70,8 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun showErrorMessage(show: Boolean, message: String? = null) {
-        _isLoading?.value = !show
-        _errorMessageVisibility?.value = show
-        _errorMessage?.value = message
+        _isLoading?.postValue(!show)
+        _errorMessageVisibility?.postValue(show)
+        _errorMessage?.postValue(message)
     }
 }
